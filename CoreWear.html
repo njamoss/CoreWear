@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreWear</title>
+    <link rel="stylesheet" href="cw.css">
+</head>
+<body>
+
+    <!-- Main Title Section -->
+    <section class="main-title">
+        <h1>Core Wear</h1>
+    </section>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Shop</button>
+            <div class="dropdown-content">
+                <button class="shop-btn" onclick="window.location.href='shopall.html'">Shop All</button>
+                <button class="shop-btn" onclick="window.location.href='tees.html'">Tees</button>
+                <button class="shop-btn" onclick="window.location.href='bottoms.html'">Bottoms</button>
+                <button class="shop-btn" onclick="window.location.href='hoodss.html'">Sweatshirts & Hoodies</button>
+                <button class="shop-btn" onclick="window.location.href='jackets.html'">Jackets & Coats</button>
+                <button class="shop-btn" onclick="window.location.href='denim.html'">Denim</button>
+              
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." id="searchInput">
+        </div>
+        
+        <!-- Cart in the Navbar -->
+        <div id="cart-icon">
+            <button id="cart-button" onclick="goToCartPage()">Cart (<span id="cart-quantity">0</span>)</button>
+        </div>
+    </nav>
+
+    <!-- Best Sellers Section -->
+    <section class="best-sellers">
+        <h2>Best Sellers</h2>
+        <div class="product-grid">
+            <div class="product-card" onclick="showProductDetails('Black Hoodie', '$45', 'blackhood.png')">
+                <img src="blackhood.png" alt="Black Hoodie">
+                <p class="product-name">Black Hoodie</p>
+                <p class="product-price">$45</p>
+                <button class="add-to-cart" onclick="addToCart('Black Hoodie', '$45', 'blackhood.png')">Add to Cart</button>
+            </div>
+            <div class="product-card" onclick="showProductDetails('Black Sweatpants', '$35', 'blacksp.png')">
+                <img src="blacksp.png" alt="Black Sweatpants">
+                <p class="product-name">Black Sweatpants</p>
+                <p class="product-price">$35</p>
+                <button class="add-to-cart" onclick="addToCart('Black Sweatpants', '$35', 'blacksp.png')">Add to Cart</button>
+            </div>
+            <div class="product-card" onclick="showProductDetails('Light Wash Denim Jacket', '$45', 'jj2.png')">
+                <img src="jj2.png" alt="Light Wash Denim Jacket">
+                <p class="product-name">Light Wash Denim Jacket</p>
+                <p class="product-price">$45</p>
+                <button class="add-to-cart" onclick="addToCart('Light Wash Denim Jacket', '$45', 'jj2.png')">Add to Cart</button>
+            </div>
+            <div class="product-card" onclick="showProductDetails('White Tee', '$15', 'whitetee.png')">
+                <img src="whitetee.png" alt="White Tee">
+                <p class="product-name">White Tee</p>
+                <p class="product-price">$15</p>
+                <button class="add-to-cart" onclick="addToCart('White Tee', '$15', 'whitetee.png')">Add to Cart</button>
+            </div>
+            <div class="product-card" onclick="showProductDetails('Rain Jacket', '$60', 'rainjacket.png')">
+                <img src="rainjacket.png" alt="Rain Jacket">
+                <p class="product-name">Rain Jacket</p>
+                <p class="product-price">$60</p>
+                <button class="add-to-cart" onclick="addToCart('Rain Jacket', '$60', 'rainjacket.png')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Modal -->
+    <div id="product-modal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-content">
+                <!-- Product details will be injected here dynamically -->
+            </div>
+        </div>
+    </div>
+
+<!-- Chatbot HTML -->
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        <h3>Chatbot</h3>
+        <button class="chatbot-close" onclick="closeChatbot()">×</button>
+    </div>
+    <div class="chatbot-body">
+        <p>Hi! How can I help you today?</p>
+    </div>
+    <div class="chatbot-input-container">
+        <input type="text" class="chatbot-input" placeholder="Type a message...">
+        <button class="chatbot-send-btn">Send</button>
+    </div>
+</div>
+
+<!-- Trigger Chatbot -->
+<button id="chatbot-trigger" onclick="openChatbot()">Open Chatbot</button>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Core Wear. Unisex Basics.</p>
+    </footer>
+
+    <script src="corewear.js"></script>
+
+    <script>
+        // Open the chatbot
+        function openChatbot() {
+            document.querySelector('.chatbot-container').style.display = 'flex';
+            document.querySelector('#chatbot-trigger').style.display = 'none'; // Hide the "Open Chatbot" button once the chatbot is opened
+        }
+        
+        // Close the chatbot
+        function closeChatbot() {
+            document.querySelector('.chatbot-container').style.display = 'none';
+            document.querySelector('#chatbot-trigger').style.display = 'block'; // Show the "Open Chatbot" button when the chatbot is closed
+        }
+        
+        // Initially show the "Open Chatbot" button
+        document.querySelector('#chatbot-trigger').style.display = 'block';
+        </script>
+        
+</body>
+</html>
