@@ -137,8 +137,8 @@ const chatbotInput = document.querySelector('.chatbot-input');
 const sendButton = document.querySelector('.chatbot-send-btn');
 const products = {
     hoodies: 'We have Hoodies for $50 and Sweatshirts for $45. Check them out <a href="hoodss.html">here</a>.',
-    tshirts: 'We have a variety of T-Shirts starting at $15. See more <a href="tees.html">here</a>.',
-    jackets: 'Our jackets start at $60. See all options <a href="jackets.html">here</a>.',
+    tees: 'We have a variety of Tees starting at $15. See more <a href="tees.html">here</a>.',
+    jackets: 'Our jackets start at $50. See all options <a href="jackets.html">here</a>.',
     bottoms: 
 };
 function addMessage(content, isBot = true) {
@@ -157,10 +157,10 @@ sendButton.addEventListener('click', () => {
 });
 function handleBotResponse(input) {
     input = input.toLowerCase();
-    if (input.includes('hoodie', 'sweatshirts')) {
+    if (input.includes('hoodie') || input.includes('sweatshirts')){
         addMessage(products.hoodies);
-    } else if (input.includes('t-shirt', 'tees') || input.includes('tshirt', 'tees')) {
-        addMessage(products.tshirts);
+    } else if (input.includes('tees')) {
+        addMessage(products.tees);
     } else if (input.includes('jacket')) {
         addMessage(products.jackets);
     } else {
