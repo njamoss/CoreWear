@@ -3,4 +3,4 @@ Multiple Clothing Categories: Browse through various categories
 Interactive Shopping Cart: Add and view items in your cart. The shopping cart also tallies the total amount required ensuring easy intergration of payment gateways for transactions
 Search Functionality: Quickly search for products using the search bar.
 Clean and Simple Layout: User-friendly interface with clear navigation
-A chatbot is also present which assists the customer to find out prices of items in an easier and faster way. 
+A chatbot is also present which assists the customer to find out prices of items in an easier and faster way. it helps the customer to know the prices of the items in stock like the tees, jackets, and hoodies. 
