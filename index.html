@@ -139,10 +139,13 @@ const chatbotInput = document.querySelector('.chatbot-input');
 const sendButton = document.querySelector('.chatbot-send-btn');
 
 const products = {
-    hoodies: 'We have Black Hoodies for $45 and Grey Hoodies for $50. Check them out <a href="hoodss.html">here</a>.',
-    tshirts: 'We have a variety of T-Shirts starting at $15. See more <a href="tees.html">here</a>.',
-    jackets: 'Our jackets start at $60. See all options <a href="jackets.html">here</a>.'
-};
+    hoodies, sweatshirts: 'We have Hoodies for $50 and Sweatshirts for $45. Check them out <a href="hoodss.html">here</a>.',
+    tshirts, tees: 'We have a variety of T-Shirts starting at $15. See more <a href="tees.html">here</a>.',
+    jackets: 'Our jackets start at $60. See all options <a href="jackets.html">here</a>.',
+    bottoms: 'We have a variety of bottoms, including sweatpants, work pants, and shorts. See all options <a href="bottoms.html">here</a>.',
+    denim, jean: 'We have various types of denim. Check out all the options <a href="denim.html">here</a>.'
+
+    };
 
 function addMessage(content, isBot = true) {
     const message = document.createElement('p');
@@ -163,13 +166,18 @@ sendButton.addEventListener('click', () => {
 
 function handleBotResponse(input) {
     input = input.toLowerCase();
-    if (input.includes('hoodie')) {
+    if (input.includes('hoodie', 'sweatshirt')) {
         addMessage(products.hoodies);
-    } else if (input.includes('t-shirt') || input.includes('tshirt')) {
+    } else if (input.includes('t-shirt', 'tee') || input.includes('tshirt', 'tee')) {
         addMessage(products.tshirts);
     } else if (input.includes('jacket')) {
         addMessage(products.jackets);
-    } else {
+    } else if (input.includes('bottoms')){
+        addMessage(products.bottoms);
+    } else if (input.inclues('denim', 'jean')){
+        addMessage(products.denim);
+    }
+    else {
         addMessage("I'm sorry, I didn't understand that. Please ask about our products!");
     }
 }
