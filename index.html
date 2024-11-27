@@ -139,6 +139,8 @@ const products = {
     hoodies: 'We have Hoodies for $50 and Sweatshirts for $45. Check them out <a href="hoodss.html">here</a>.',
     tees: 'We have a variety of Tees starting at $15. See more <a href="tees.html">here</a>.',
     jackets: 'Our jackets start at $50. See all options <a href="jackets.html">here</a>.',
+    denim: 'We have various types of denim options. See all of the options <a href="denim.html">here</a>.',
+    bottoms: 'We have shorts that are $20, sweatpants that are $35, and work pants that are $30. Check them out <a href=bottoms.html">here</a>'
 };
 function addMessage(content, isBot = true) {
     const message = document.createElement('p');
@@ -162,7 +164,12 @@ function handleBotResponse(input) {
         addMessage(products.tees);
     } else if (input.includes('jacket')) {
         addMessage(products.jackets);
-    } else {
+    } else if (input.includes('denim') || input.includes('jean')){
+        addMessage(products.denim);
+    } else if (input.includes('short') || input.includes('bottom') || input.includes('pant')){
+        addMessage(products.bottoms);
+    }
+    else {
         addMessage("I'm sorry, I didn't understand that. Please ask about our products!");
     }
 }
