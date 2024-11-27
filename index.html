@@ -125,6 +125,66 @@
         
         // Initially show the "Open Chatbot" button
         document.querySelector('#chatbot-trigger').style.display = 'block';
+        <button id="chatbot-trigger" onclick="openChatbot()">Open Chatbot</button>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Core Wear. Unisex Basics.</p>
+    </footer>
+
+    <script src="corewear.js"></script>
+
+<script>
+const chatbotBody = document.querySelector('.chatbot-body');
+const chatbotInput = document.querySelector('.chatbot-input');
+const sendButton = document.querySelector('.chatbot-send-btn');
+
+const products = {
+    hoodies: 'We have Black Hoodies for $45 and Grey Hoodies for $50. Check them out <a href="hoodss.html">here</a>.',
+    tshirts: 'We have a variety of T-Shirts starting at $15. See more <a href="tees.html">here</a>.',
+    jackets: 'Our jackets start at $60. See all options <a href="jackets.html">here</a>.'
+};
+
+function addMessage(content, isBot = true) {
+    const message = document.createElement('p');
+    message.innerHTML = content;
+    message.className = isBot ? 'bot-message' : 'user-message';
+    chatbotBody.appendChild(message);
+    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+}
+
+sendButton.addEventListener('click', () => {
+    const userInput = chatbotInput.value.trim();
+    if (!userInput) return;
+
+    addMessage(userInput, false);
+    chatbotInput.value = '';
+    handleBotResponse(userInput);
+});
+
+function handleBotResponse(input) {
+    input = input.toLowerCase();
+    if (input.includes('hoodie')) {
+        addMessage(products.hoodies);
+    } else if (input.includes('t-shirt') || input.includes('tshirt')) {
+        addMessage(products.tshirts);
+    } else if (input.includes('jacket')) {
+        addMessage(products.jackets);
+    } else {
+        addMessage("I'm sorry, I didn't understand that. Please ask about our products!");
+    }
+}
+
+function openChatbot() {
+    document.querySelector('.chatbot-container').style.display = 'flex';
+    document.querySelector('#chatbot-trigger').style.display = 'none';
+}
+
+function closeChatbot() {
+    document.querySelector('.chatbot-container').style.display = 'none';
+    document.querySelector('#chatbot-trigger').style.display = 'block';
+}
+
+        </script>
         </script>
         
 </body>
